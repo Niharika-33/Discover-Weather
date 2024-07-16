@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Weather</title>
+    <link rel="stylesheet" href="styles_05.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="outer-container">
+        <div class="inner-container">
+            <div class="inner-left">
+                <h1>Discover Weather</h1>
+                <p class="tagline">Your one-stop destination for accurate weather forecasts.</p>
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search for a city..." oninput="showSuggestions()">
+                    <i class="fa fa-search"></i>
+                </div>
+                <ul id="suggestions"></ul>
+                <div class="alert"></div>
+                <div class="alert-overlay"></div>
+                <div id="weather-details" class="weather-grid">
+                    <div class="weather-container">
+                        <div class="icon">
+                            <i class="fas fa-cloud"></i> 
+                        </div>
+                        <div class="info">
+                            <p class="title">Temperature</p>
+                            <p class="value" id="temperature"></p>
+                            <p class="condition" id="weather-condition"></p>
+                        </div>
+                    </div>
+                    <div class="weather-container">
+                        <div class="icon">
+                            <i class="fas fa-thermometer-half"></i> 
+                        </div>
+                        <div class="info">
+                            <p class="title">Feels Like</p>
+                            <p class="value" id="feels-like"></p>
+                        </div>
+                    </div>
+                    <div class="weather-container">
+                        <div class="icon">
+                            <i class="fas fa-tint"></i> 
+                        </div>
+                        <div class="info">
+                            <p class="title">Humidity</p>
+                            <p class="value" id="humidity"></p>
+                        </div>
+                    </div>
+                    <div class="weather-container">
+                        <div class="icon">
+                            <i class="fas fa-cloud-showers-heavy"></i> 
+                        </div>
+                        <div class="info">
+                            <p class="title">Precipitation</p>
+                            <p class="value" id="precipitation"></p>
+                        </div>
+                    </div>
+                    <div class="weather-container">
+                        <div class="icon">
+                            <i class="fas fa-wind"></i> 
+                        </div>
+                        <div class="info">
+                            <p class="title">Wind Speed</p>
+                            <p class="value" id="wind-speed"></p>
+                        </div>
+                    </div>
+                    <div class="weather-container">
+                        <div class="icon">
+                            <i class="fas fa-eye"></i> 
+                        </div>
+                        <div class="info">
+                            <p class="title">Visibility</p>
+                            <p class="value" id="visibility"></p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-right">
+                <div class="slideshow">
+                    <div class="slide"  data-bg="url('https://static1.thetravelimages.com/wordpress/wp-content/uploads/2023/10/mesquite-flat-sand-dunes-death-valley-california.jpg')">
+                        <div class="slide-content">
+                        <h2>Hottest Place in the World</h2>
+                        <p>Location: Death Valley, USA</p>
+                        <p>Highest Recorded Temperature: 56.7°C</p>
+                        </div>
+                    </div>
+                    <div class="slide"  data-bg="url('https://static.toiimg.com/img/107379877/Master.jpg')">
+                        <div class="slide-content">
+                        <h2>Coldest City in the World</h2>
+                        <p>Location: Yakutsk, Russia</p>
+                        <p>Lowest Recorded Temperature: -64.4°C</p>
+                        </div>
+                    </div>
+                    <div class="slide"  data-bg="url('https://content.r9cdn.net/rimg/dimg/5c/18/b140e9fd-city-6552-16f863e7021.jpg?crop=true&width=1020&height=498')">
+                        <div class="slide-content">
+                        <h2>Most Humid City</h2>
+                        <p>Location: Balikpapan, Indonesia</p>
+                        <p>Highest Humidity: 90%</p>
+                        </div>
+                    </div>
+                    <div class="slide"   data-bg="url('https://cdn.agriland.ie/uploads/2020/02/Image-source-Wikimedia-commons-google-search-reuse-wind-windy-trees.jpg')">
+                        <div class="slide-content">
+                        <h2>Windiest City in the World</h2>
+                        <p>Location: Wellington, New Zealand</p>
+                        <p>Highest Wind Speed: 248 km/h</p>
+                        </div>
+                    </div>
+                    <div class="slide"  data-bg="url('https://www.kajaawa.com/wp-content/uploads/2022/05/Seven-Sisters-Falls-5-kaga.jpg')">
+                        <div class="slide-content">                       
+                        <h2>Wettest Place on Earth</h2>
+                        <p>Location: Mawsynram, India</p>
+                        <p>Highest Annual Rainfall: 467.4 inches</p>
+                        </div>
+                    </div>
+                    <div class="slide"  data-bg="url('https://sevennaturalwonders.org/wp-content/uploads/2023/11/Atacama-Desert.jpg')">
+                        <div class="slide-content">
+                        <h2>Driest Place on Earth</h2>
+                        <p>Location: Atacama Desert</p>
+                        <p>Lowest Annual Rainfall: 0.004 inches</p>
+                        </div>
+                    </div>
+                    <div class="slide"  data-bg="url('https://cdn.homeandmoney.com/wp-content/uploads/2023/05/15175733/yuma-az_shutterstock_1803990430.webp')">
+                        <div class="slide-content">
+                        <h2>Highest Sunshine Hour</h2>
+                        <p>Location: Yuma, Arizona, USA</p>
+                        <p>Highest Sunshine Hours: 4100 hours annually</p>
+                        </div>
+                    </div>
+                    <div class="slide"  data-bg="url('https://faroeislands.org.uk/wp-content/uploads/torshavn-scaled.jpg')">
+                        <div class="slide-content">
+                        <h2>Lowest Sunshine Hour</h2>
+                        <p>Location: Torshavn, Faroe Islands</p>
+                        <p>Lowest Sunshine Hours: 840 hours annually</p>
+                        </div>
+                    </div>
+                    <div class="slide"   data-bg="url('https://rimage.gnst.jp/livejapan.com/public/article/detail/a/30/00/a3000109/img/basic/a3000109_main.jpg')">
+                        <div class="slide-content">
+                        <h2>Snowiest City</h2>
+                        <p>Location: Aomori, Japan</p>
+                        <p>Highest Snowfall: 26.9 meters annually</p>
+                        </div>
+                    </div>
+                </div>           
+            </div>     
+        </div>
+    </div>
+    <script src="script_05.js"></script>
+</body>
+</html>
+
+
+
+
